@@ -13,7 +13,7 @@ router.get("/apiFirstCall", async (req, res, next) => {
         genero: p.gender,
         vivo: p.alive,
         slug: p.slug,
-        casa: p.house
+        casa: p.house,
       })
     );
     bulk.execute();
@@ -32,7 +32,7 @@ router.get("/characters", async (req, res) => {
 
 router.get("/characters/:id", async (req, res) => {
   const data = await Personaje.find({ _id: req.params.id });
-  console.log(req.params.id)
+  console.log(req.params.id);
   res.json(data);
 });
 

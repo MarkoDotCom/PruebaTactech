@@ -1,3 +1,4 @@
+import Axios from "axios";
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../context/UserContext";
@@ -8,7 +9,6 @@ export default function AuthOptions() {
   const history = useHistory();
 
   const register = () => history.push("/register");
-  const productos = () => history.push("/productos");
   const login = () => history.push("/login");
   const got = () => history.push("/got");
   const logout = () => {
@@ -18,10 +18,17 @@ export default function AuthOptions() {
     });
     localStorage.setItem("auth-token", "");
   };
+  const poblar = () => {
+    let query = "http://localhost:5000/got/apiFirstCall"; // poblar base de datos
+    Axios.get(query);
+
+    history.push("/got");
+  };
 
   return (
     <nav className="auth-options">
       <button onClick={got}>GOT</button>
+      <button onClick={poblar}>Poblar BD</button>
       {userData.user ? (
         <>
           <button onClick={logout}>Cerrar Sesión</button>

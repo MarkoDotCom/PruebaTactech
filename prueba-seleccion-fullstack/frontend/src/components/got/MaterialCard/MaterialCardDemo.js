@@ -1,19 +1,13 @@
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-  useParams,
-} from "react-router-dom";
-import React, { useState, useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Personajes from "../got/Personajes"
 
 const useStyles = makeStyles({
   root: {
@@ -43,18 +37,13 @@ export default function SimpleCard() {
 
   const getApi = async () => {
     let query = "http://localhost:5000/got/characters/" + id;
-
     const data = await Axios.get(query);
-
+    console.log(data);
     setData(data.data);
-
-    console.log(data.data);
   };
 
-  const bull = <span className={classes.bullet}>•</span>;
-
   function printAlive(e) {
-    if (e == true) {
+    if (e === true) {
       return <>Vivo</>;
     } else {
       return <>Muerto</>;
@@ -62,10 +51,10 @@ export default function SimpleCard() {
   }
 
   function printGender(e) {
-    if (e == "male") {
+    if (e === "male") {
       return <>Masculino</>;
     }
-    if (e == "female") {
+    if (e === "female") {
       return <>Femenino</>;
     }
     if (e == null) {
@@ -101,7 +90,7 @@ export default function SimpleCard() {
       </CardContent>
       <CardActions>
         <Button size="small">
-          <Link to="/" >VOLVER ATRAS</Link>
+          <Link to="/">VOLVER ATRAS</Link>
         </Button>
       </CardActions>
     </Card>

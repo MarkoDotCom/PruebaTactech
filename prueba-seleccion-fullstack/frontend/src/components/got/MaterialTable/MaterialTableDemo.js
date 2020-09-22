@@ -129,7 +129,7 @@ export default function CustomPaginationActionsTable() {
   };
 
   function printAlive(e) {
-    if (e == true) {
+    if (e === true) {
       return <>Vivo</>;
     } else {
       return <>Muerto</>;
@@ -137,13 +137,13 @@ export default function CustomPaginationActionsTable() {
   }
 
   function printGender(e) {
-    if (e == "male") {
+    if (e === "male") {
       return <>Masculino</>;
     }
-    if (e == "female") {
+    if (e === "female") {
       return <>Femenino</>;
     }
-    if (e == null) {
+    if (e === null) {
       return <>Indefinido</>;
     }
   }

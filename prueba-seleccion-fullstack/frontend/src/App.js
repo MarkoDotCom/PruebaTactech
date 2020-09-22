@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route , useParams} from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Axios from "axios";
 import Header from "./components/layout/Header";
 import Home from "./components/pages/Home";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import UserContext from "./context/UserContext";
-import Productos from "./components/producto/Index"
 import Got from "./components/got/Personajes"
 import Personaje from "./components/got/Personaje"
 
